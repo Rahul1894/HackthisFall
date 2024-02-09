@@ -26,8 +26,20 @@
             padding: 20px;
             color: #fff;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin-left: 20px; /* Adjusted margin */
+        }
+
+        header img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         header .nav-buttons button {
@@ -108,6 +120,8 @@
             padding: 20px;
             color: #fff;
             text-align: center;
+            width: 100%;
+            margin-top: 20px;
         }
 
         footer p {
@@ -124,6 +138,8 @@
 </head>
 <body>
     <header>
+        <img src="logo.jpg" alt="Logo">
+        <h1>iForum</h1>
         <div class="nav-buttons">
             <button onclick="location.href='communities.html'">Communities</button>
             <button onclick="location.href='login.html'">Login</button>
@@ -147,6 +163,28 @@
             <img src="community3.jpg" alt="Community 3">
             <h3>Community 3</h3>
             <p>Description of Community 3 goes here.</p>
+            <button class="arrow-button">&#10148;</button>
+        </div>
+        <!-- Add more community cards here -->
+    </div>
+    <!-- Additional Row -->
+    <div class="container">
+        <div class="community-card">
+            <img src="community1.jpg" alt="Community 4">
+            <h3>Community 4</h3>
+            <p>Description of Community 4 goes here.</p>
+            <button class="arrow-button">&#10148;</button>
+        </div>
+        <div class="community-card">
+            <img src="community2.jpg" alt="Community 5">
+            <h3>Community 5</h3>
+            <p>Description of Community 5 goes here.</p>
+            <button class="arrow-button">&#10148;</button>
+        </div>
+        <div class="community-card">
+            <img src="community3.jpg" alt="Community 6">
+            <h3>Community 6</h3>
+            <p>Description of Community 6 goes here.</p>
             <button class="arrow-button">&#10148;</button>
         </div>
         <!-- Add more community cards here -->
