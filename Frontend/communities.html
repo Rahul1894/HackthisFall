@@ -1,6 +1,3 @@
-Certainly! Below is the modified code with the addition of JavaScript to redirect users to `chat-screen.html` when they click on either the arrow button or the entire community card:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,6 +140,11 @@ Certainly! Below is the modified code with the addition of JavaScript to redirec
             }
         }
     </style>
+    <script>
+        function redirectToChat(url) {
+            window.location.href = "chat-screen.html";
+        }
+    </script>
 </head>
 <body>
     <header>
