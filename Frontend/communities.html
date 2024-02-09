@@ -3,52 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unity Network - Communities</title>
+    <title>Unity Network - Home</title>
     <style>
-        /* Basic CSS for styling */
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset CSS */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
         }
-        .container {
-            max-width: 800px;
-            margin: 80px auto;
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Hide horizontal overflow */
+        }
+
+        /* Header */
+        header {
+            background-color: #007bff;
             padding: 20px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin-left: 20px; /* Adjusted margin */
+        }
+
+        header img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        header .nav-buttons button {
+            background-color: #007bff;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header .nav-buttons button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Container */
+        .container {
+            width: 100vw; /* Full viewport width */
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping */
+            justify-content: space-around; /* Center horizontally */
+            align-items: flex-start; /* Align to top */
+            padding: 20px;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        }
+
+        /* Community Cards */
+        .community-card {
             background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px 10px;
+            padding: 20px;
             text-align: center;
+            width: 300px; /* Adjusted width */
+            height: 300px; /* Adjusted height */
         }
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
+
+        .community-card img {
+            width: 120px; /* Adjust image size */
+            height: 120px;
+            object-fit: cover; /* Maintain aspect ratio */
+            border-radius: 50%; /* Rounded corners */
+            margin-bottom: 10px; /* Spacing below image */
         }
-        p {
+
+        .community-card h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .community-card p {
             color: #666;
+            margin-bottom: 10px;
+        }
+
+        .community-card .arrow-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .community-card .arrow-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #007bff;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            width: 100%;
             margin-top: 20px;
         }
-        a {
-            text-decoration: none;
-            color: #007bff;
+
+        footer p {
+            margin: 0;
         }
-        a:hover {
-            text-decoration: underline;
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .community-card {
+                width: calc(100% - 40px); /* Full width with margins */
+            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <a href="index.html"><img src="logo.jpg" alt="Logo"></a>
+        <h1>iForum</h1>
+        <div class="nav-buttons">
+            <button onclick="location.href='communities.html'">Communities</button>
+            <button onclick="location.href='login.html'">Login</button>
+            <button onclick="location.href='signup.html'">Sign Up</button>
+        </div>
+    </header>
     <div class="container">
-        <h1>Unity Network - Communities</h1>
-        <!-- Communities content -->
-        <p>Explore our communities and engage with like-minded individuals.</p>
-        <ul>
-            <li>Community 1</li>
-            <li>Community 2</li>
-            <!-- Add more communities as needed -->
-        </ul>
-        <p>Go to <a href="notification.html">Notifications</a></p>
+        <div class="community-card">
+            <img src="community1.jpg" alt="Community 1">
+            <h3>Community 1</h3>
+            <p>Description of Community 1 goes here.</p>
+            <button class="arrow-button">&#10148;</button>
+        </div>
+        <div class="community-card">
+            <img src="community2.jpg" alt="Community 2">
+            <h3>Community 2</h3>
+            <p>Description of Community 2 goes here.</p>
+            <button class="arrow-button">&#10148;</button>
+        </div>
+        <div class="community-card">
+            <img src="community3.jpg" alt="Community 3">
+            <h3>Community 3</h3>
+            <p>Description of Community 3 goes here.</p>
+            <button class="arrow-button">&#10148;</button>
+        </div>
+        <!-- Add more community cards here -->
     </div>
+    <!-- Additional Row -->
+    <div class="container">
+        <div class="community-card">
+            <img src="community1.jpg" alt="Community 4">
+            <h3>Community 4</h3>
+            <p>Description of Community 4 goes here.</p>
+            <button class="arrow-button">&#10148;</button>
+        </div>
+        <div class="community-card">
+            <img src="community2.jpg" alt="Community 5">
+            <h3>Community 5</h3>
+            <p>Description of Community 5 goes here.</p>
+            <button class="arrow-button">&#10148;</button>
+        </div>
+        <div class="community-card">
+            <img src="community3.jpg" alt="Community 6">
+            <h3>Community 6</h3>
+            <p>Description of Community 6 goes here.</p>
+            <button class="arrow-button">&#10148;</button>
+        </div>
+        <!-- Add more community cards here -->
+    </div>
+    <footer>
+        <p>&copy; 2022 Unity Network. All rights reserved.</p>
+    </footer>
 </body>
 </html>

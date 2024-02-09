@@ -3,88 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>iForum - About</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        /* Reset CSS */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Hide horizontal overflow */
+        }
+
+        /* Header */
+        header {
+            background-color: #007bff;
             padding: 20px;
-            text-align: center;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .header {
-            padding: 20px 0;
+        header h1 {
+            font-size: 24px;
+            margin-left: 20px; /* Adjusted margin */
         }
 
-        .header h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #007bff;
+        header img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
-        .nav-buttons {
-            margin-top: 50px;
+        header .nav-buttons {
+            display: flex;
+            align-items: center;
         }
 
-        .nav-buttons button {
-            padding: 15px 30px;
-            margin: 0 10px;
-            border: none;
-            border-radius: 30px;
+        header .nav-buttons button {
             background-color: #007bff;
             color: #fff;
-            font-size: 18px;
+            border: 1px solid #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-left: 10px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 14px; /* Adjusted font size */
         }
 
-        .nav-buttons button:hover {
+        header .nav-buttons button:hover {
             background-color: #0056b3;
+            border-color: #0056b3;
         }
 
-        .social-icons {
-            margin-top: 50px;
+        /* Main Content */
+        .main-content {
+            padding: 20px;
         }
 
-        .social-icons a {
-            display: inline-block;
-            margin: 0 10px;
+        .main-content h2 {
             color: #007bff;
-            font-size: 24px;
-            transition: color 0.3s ease;
+            margin-bottom: 10px;
         }
 
-        .social-icons a:hover {
-            color: #0056b3;
+        .main-content p {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .main-content .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: 1px solid #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px; /* Adjusted font size */
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .main-content .btn:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #007bff;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Welcome to Our Website</h1>
-            <p>Explore and Connect</p>
-        </div>
+    <header>
+        <a href="index.html"><img src="logo.jpg" alt="Logo"></a>
+        <h1>iForum</h1>
         <div class="nav-buttons">
+            <button onclick="location.href='notification.html'"><i class="fas fa-bell"></i></button>
             <button onclick="location.href='communities.html'">Communities</button>
             <button onclick="location.href='login.html'">Login</button>
             <button onclick="location.href='signup.html'">Sign Up</button>
         </div>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+    </header>
+    <div class="container main-content">
+        <h2>About iForum</h2>
+        <p>iForum is a platform for users to connect, share ideas, and engage in meaningful discussions. Our mission is to create a vibrant community where individuals can express themselves freely and learn from one another. Whether you're a seasoned professional or a newcomer, iForum welcomes you to join our diverse community and be part of the conversation.</p>
+        <p>Feel free to explore our website, join communities, participate in discussions, and make valuable connections. We value your feedback and suggestions to make iForum a better place for everyone.</p>
+        <button class="btn" onclick="location.href='index.html'">Back to Home</button>
     </div>
+    <footer>
+        <p>&copy; 2022 Unity Network. All rights reserved.</p>
+    </footer>
 </body>
 </html>
