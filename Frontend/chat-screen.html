@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Screen</title>
+    <style>
+        /* Reset CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .chat-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background-color: #0088cc;
+            color: #fff;
+            padding: 15px;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 2px solid #005a8c;
+        }
+
+        .chat-messages {
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 15px;
+        }
+
+        .message .user {
+            font-weight: bold;
+            color: #0088cc;
+        }
+
+        .message .text {
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            padding: 10px;
+            display: inline-block;
+            max-width: 80%;
+        }
+
+        .message .text:last-child {
+            margin-bottom: 0;
+        }
+
+        .message.me .text {
+            background-color: #dcf8c6;
+            color: #008000;
+        }
+
+        .chat-input {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px solid #005a8c;
+        }
+
+        .chat-input input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .chat-input button {
+            background-color: #0088cc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .chat-input button:hover {
+            background-color: #005a8c;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">Chat</div>
+        <div class="chat-messages">
+            <div class="message">
+                <span class="user">John:</span>
+                <span class="text">Hello there!</span>
+            </div>
+            <div class="message me">
+                <span class="user">Me:</span>
+                <span class="text">Hi John!</span>
+            </div>
+            <!-- More messages here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message...">
+            <button>Send</button>
+        </div>
+    </div>
+</body>
+</html>

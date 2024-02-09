@@ -1,9 +1,12 @@
+Certainly! Below is the modified code with the addition of JavaScript to redirect users to `chat-screen.html` when they click on either the arrow button or the entire community card:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unity Network - Home</title>
+    <title>iForum - Home</title>
     <style>
         /* Reset CSS */
         * {
@@ -80,6 +83,11 @@
             text-align: center;
             width: 300px; /* Adjusted width */
             height: 300px; /* Adjusted height */
+            cursor: pointer; /* Added cursor pointer */
+        }
+
+        .community-card:hover { /* Highlight on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .community-card img {
@@ -147,19 +155,19 @@
         </div>
     </header>
     <div class="container">
-        <div class="community-card">
+        <div class="community-card" onclick="redirectToChat()">
             <img src="community1.jpg" alt="Community 1">
             <h3>Community 1</h3>
             <p>Description of Community 1 goes here.</p>
             <button class="arrow-button">&#10148;</button>
         </div>
-        <div class="community-card">
+        <div class="community-card" onclick="redirectToChat()">
             <img src="community2.jpg" alt="Community 2">
             <h3>Community 2</h3>
             <p>Description of Community 2 goes here.</p>
             <button class="arrow-button">&#10148;</button>
         </div>
-        <div class="community-card">
+        <div class="community-card" onclick="redirectToChat()">
             <img src="community3.jpg" alt="Community 3">
             <h3>Community 3</h3>
             <p>Description of Community 3 goes here.</p>
@@ -169,19 +177,19 @@
     </div>
     <!-- Additional Row -->
     <div class="container">
-        <div class="community-card">
+        <div class="community-card" onclick="redirectToChat()">
             <img src="community1.jpg" alt="Community 4">
             <h3>Community 4</h3>
             <p>Description of Community 4 goes here.</p>
             <button class="arrow-button">&#10148;</button>
         </div>
-        <div class="community-card">
+        <div class="community-card" onclick="redirectToChat()">
             <img src="community2.jpg" alt="Community 5">
             <h3>Community 5</h3>
             <p>Description of Community 5 goes here.</p>
             <button class="arrow-button">&#10148;</button>
         </div>
-        <div class="community-card">
+        <div class="community-card" onclick="redirectToChat()">
             <img src="community3.jpg" alt="Community 6">
             <h3>Community 6</h3>
             <p>Description of Community 6 goes here.</p>
@@ -192,5 +200,4 @@
     <footer>
         <p>&copy; 2022 Unity Network. All rights reserved.</p>
     </footer>
-</body>
-</html>
+
