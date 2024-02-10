@@ -69,6 +69,3 @@ If you'd like to contribute to this project, please follow these steps:
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
-
-Replace placeholders like `yourusername`, `projectname`, and any other specific details with your actual project information. Also, ensure you provide detailed information in each section relevant to your project.
