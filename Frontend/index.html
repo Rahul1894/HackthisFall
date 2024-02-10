@@ -22,7 +22,7 @@
         }
 
         header {
-            background-color: #007bff;
+            background-color: #0056b3 ;
             padding: 20px;
             color: #fff;
             display: flex;
@@ -33,6 +33,7 @@
         .logo-container {
             display: flex;
             align-items: center;
+            padding-left: 200px;
         }
 
         header img.logo {
@@ -44,6 +45,7 @@
         }
 
         .nav-buttons {
+            padding-right: 200px;
             display: flex;
             align-items: center;
         }
@@ -57,7 +59,7 @@
             margin-left: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         .nav-buttons button:hover {
@@ -103,6 +105,7 @@
             margin-top: auto;
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-between; /* Adjust alignment */
         }
 
         .footer-section {
@@ -148,14 +151,27 @@
         .quick-links ul {
             list-style-type: none;
             padding: 0;
+            text-align: center; /* Center-align the list items */
         }
 
         .quick-links ul li {
-            margin-bottom: 5px;
+            margin-bottom: 10px; /* Increase spacing between links */
+        }
+
+        .quick-links ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .quick-links ul li a:hover {
+            color: #ffd700;
+            font-size: 20px; /* Change color on hover */
         }
 
         .contact-info p {
-            margin-bottom: 5px;
+            margin-bottom: 10px; /* Increase spacing between contact info */
+            text-align: center; /* Center-align contact info */
         }
 
         .footer-text {
@@ -164,6 +180,7 @@
 
         /* Additional styling for the second row */
         .footer-bottom {
+            padding-left: 650px;
             width: 100%;
             display: flex;
             justify-content: space-between;
@@ -172,12 +189,16 @@
         }
 
         .footer-bottom p {
-            font-size: 12px;
+            font-size: 20px;
             background-color: #28394f;
         }
 
         .footer-bottom .copyright {
             order: -1; /* Reverses the order, placing it on the right */
+        }
+        .section {
+            border: 1px #28394f;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -185,7 +206,6 @@
     <header>
         <div class="logo-container">
             <a href="index.html"><img src="logo.jpg" alt="Logo" class="logo"></a>
-            <h1>iForum</h1>
         </div>
         <div class="nav-buttons">
             <button onclick="location.href='notification.html'"><i class="fas fa-bell"></i></button>
@@ -203,16 +223,20 @@
         <div class="footer-section">
             <div class="logo-info">
                 <a href="index.html"><img src="logo.jpg" alt="Company Logo" class="logo"></a>
-                <div class="section-divider"></div>
-                <div>
-                    <p>Pixel Pioneers and Team</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="section" style="height: 80px;">
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, </p>
+                        <p>consectetur adipiscing elit. </p>
+                        <p>do eiusmod tempor incididunt </p>
+                        <p>labore et dolore magna aliqua.</p> 
+                    </div>
                 </div>
-                <div class="section-divider"></div>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
@@ -220,6 +244,7 @@
             <div class="quick-links">
                 <h3>Quick Links</h3>
                 <ul>
+                    <li><a href="#"></a></li>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Services</a></li>
@@ -227,22 +252,19 @@
                 </ul>
             </div>
         </div>
-        <div class="footer-section">
+        <div class="footer-section" style="text-align: center;"> <!-- Adjust alignment -->
             <div class="contact-info">
                 <h3>Contact Info</h3>
+                <p></p>
                 <p>123 Street Name, City, Country</p>
                 <p>Email: info@example.com</p>
                 <p>Phone: +1234567890</p>
             </div>
         </div>
-        <div class="footer-section"></div> <!-- Empty column for spacing -->
     </footer>
-    <div class="footer-section footer-bottom">
-        <div class="footer-text">
-            <p>Developed by Pixel Pioneers and Team</p>
-        </div>
+    <div class="footer-bottom">
         <div class="footer-text copyright">
-            <p>&copy; 2024 iForum. All rights reserved.</p>
+            <p> Copyright &copy; 2024. All rights reserved.</p>
         </div>
     </div>
     
