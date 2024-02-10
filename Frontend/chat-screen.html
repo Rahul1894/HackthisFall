@@ -21,57 +21,11 @@
 
         .container {
             display: flex;
-            width: 100%;
-            height: 100%;
+            width: 50%;
+            height: 85%;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        .chat-list {
-            flex: 1;
-            background-color: #fff;
-            overflow-y: auto;
-        }
-
-        .chat-list-header {
-            background-color: #075e54;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-            font-size: 24px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .chat-list-items {
-            padding: 10px;
-        }
-
-        .chat-item {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            border-bottom: 1px solid #ccc;
-            cursor: pointer;
-        }
-
-        .chat-item img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-
-        .chat-item-info {
-            flex: 1;
-        }
-
-        .chat-item-name {
-            font-weight: bold;
-        }
-
-        .chat-item-message {
-            color: #888;
         }
 
         .chat-screen {
@@ -98,8 +52,8 @@
             margin: 0;
         }
 
-        .community-btn {
-            padding: 10px 20px;
+        .back-btn {
+            padding: 10px;
             background-color: #075e54;
             color: #fff;
             border: none;
@@ -109,7 +63,7 @@
             font-size: 16px;
         }
 
-        .community-btn:hover {
+        .back-btn:hover {
             background-color: #064e44;
         }
 
@@ -121,16 +75,16 @@
 
         .message {
             background-color: #fff;
-            padding: 10px;
+            padding: 8px;
             margin: 10px;
-            border-radius: 10px;
-            font-size: 16px;
-            max-width: 80%;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 30%;
             word-wrap: break-word;
-            display: inline-block;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            border: 1px solid #ccc;
         }
 
         .own-message {
@@ -145,19 +99,22 @@
 
         .message-text {
             margin: 0;
-            margin-right: 10px;
+            margin-left: 20px;
+            font-size: 20px; 
         }
 
         .message-info {
             color: #888;
-            font-size: 14px;
+            font-size: 20px;
+            padding-left: 20px;
         }
         
         .message-info img {
-            width: 20px;
+            width: 100px;
             height: 20px;
             border-radius: 50%;
-            margin-right: 5px;
+            margin-right: 15px;
+            margin-left: 15px;
         }
 
         .date-separator {
@@ -176,9 +133,10 @@
         .chat-input-container {
             display: flex;
             align-items: center;
-            padding: 15px;
+            padding-left: 30px;
             background-color: #fff;
             border-top: 1px solid #ccc;
+            font-size: 25px;
         }
 
         .chat-input {
@@ -187,7 +145,7 @@
             border: none;
             border-radius: 20px;
             margin-right: 10px;
-            font-size: 16px;
+            font-size: 25px;
             outline: none;
         }
 
@@ -199,49 +157,27 @@
             border-radius: 20px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         .send-message-btn:hover {
             background-color: #064e44;
         }
-
-        .emoji-picker {
-            position: absolute;
-            bottom: 80px;
-            right: 20px;
-            z-index: 1;
-        }
-
-        .emoji-picker img {
-            width: 24px;
-            height: 24px;
-            margin-right: 5px;
-            cursor: pointer;
+        .chat-item img {
+            width: 40px; 
+            height: 40px; 
+            border-radius: 5%;
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="chat-list">
-            <div class="chat-list-header">
-                iForum Chat
-            </div>
-            <div class="chat-list-items">
-                <div class="chat-item">
-                    <img src="https://via.placeholder.com/50" alt="User">
-                    <div class="chat-item-info">
-                        <div class="chat-item-name">John Doe</div>
-                        <div class="chat-item-message">Hello there!</div>
-                    </div>
-                </div>
-                <!-- Add more chat items here -->
-            </div>
-        </div>
         <div class="chat-screen">
             <div class="chat-header">
+                <!-- Back arrow button added -->
+                <button class="back-btn" onclick="goBack()">Back</button>
                 <h2>Chat Screen</h2>
-                <button class="community-btn" onclick="location.href='communities.html'">Community</button>
             </div>
             <div class="chat-messages" id="chat-messages">
                 <!-- Chat messages will be displayed here -->
@@ -254,15 +190,18 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        function goBack() {
+            window.history.back();
+        }
+
+        function initializeChat() {
             const chatMessages = document.getElementById('chat-messages');
             const chatInput = document.getElementById('chat-input');
             const sendMessageBtn = document.getElementById('send-message-btn');
             const emojiPicker = document.getElementById('emoji-picker');
             let lastMessageDate = null;
 
-            // Function to add a message to the chat interface
-            function addMessage(message, sender, profilePic, time) {
+            function addMessage(message, sender, time) {
                 const messageDate = new Date().toDateString();
                 if (lastMessageDate !== messageDate) {
                     const dateSeparator = document.createElement('div');
@@ -273,57 +212,72 @@
                     lastMessageDate = messageDate;
                 }
 
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('message');
-                messageDiv.classList.add(sender === 'own' ? 'own-message' : 'other-message');
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(sender === 'own' ? 'own-message' : 'other-message');
 
-                // Profile picture
-                const profilePicImg = document.createElement('img');
-                profilePicImg.src = profilePic;
-                profilePicImg.alt = 'Profile Pic';
-                messageDiv.appendChild(profilePicImg);
+            // Profile picture
+            const profilePicImg = document.createElement('img');
+            profilePicImg.src = 'logo.jpg';
+            profilePicImg.alt = 'Profile Pic';
+            profilePicImg.width = 50;
+            profilePicImg.height = 50;
+            messageDiv.appendChild(profilePicImg);
 
-                // Message content
-                const messageContent = document.createElement('div');
-                messageContent.classList.add('message-content');
-                const messageText = document.createElement('p');
-                messageText.classList.add('message-text');
-                messageText.textContent = message;
-                messageContent.appendChild(messageText);
+            // Message content
+            const messageContent = document.createElement('div');
+            messageContent.classList.add('message-content');
+            const messageText = document.createElement('p');
+            messageText.classList.add('message-text');
+            messageText.textContent = message;
+            messageContent.appendChild(messageText);
 
-                // Message info (time)
-                const messageInfo = document.createElement('div');
-                messageInfo.classList.add('message-info');
-                const timeText = document.createElement('span');
-                timeText.textContent = time;
-                messageInfo.appendChild(timeText);
+            // Message info (time)
+            const messageInfo = document.createElement('div');
+            messageInfo.classList.add('message-info');
+            const timeText = document.createElement('span');
+            timeText.textContent = time;
+            messageInfo.appendChild(timeText);
 
-                messageContent.appendChild(messageInfo);
-                messageDiv.appendChild(messageContent);
-                chatMessages.appendChild(messageDiv);
+            messageContent.appendChild(messageInfo);
+            messageDiv.appendChild(messageContent);
+            chatMessages.appendChild(messageDiv);
 
-                // Scroll to the bottom of the chat
-                chatMessages.scrollTop = chatMessages.scrollHeight;
+            // Scroll to the bottom of the chat
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Event listener for sending a message
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message !== '') {
+                // For demonstration purposes, we're using placeholder data
+                addMessage(message, 'own', 'JP.jpg', new Date().toLocaleTimeString());
+                chatInput.value = ''; // Clear input field
             }
+        }
 
-            // Event listener for sending a message
-            sendMessageBtn.addEventListener('click', () => {
-                const message = chatInput.value.trim();
-                if (message !== '') {
-                    // For demonstration purposes, we're using placeholder data
-                    addMessage(message, 'own', 'https://via.placeholder.com/50', new Date().toLocaleTimeString());
-                    chatInput.value = ''; // Clear input field
-                }
-            });
+        sendMessageBtn.addEventListener('click', sendMessage);
 
-            // Add event listener for emoji click
-            emojiPicker.addEventListener('click', (event) => {
-                if (event.target.tagName === 'IMG') {
-                    const emoji = event.target.getAttribute('data-emoji');
-                    chatInput.value += emoji;
-                }
-            });
+        // Add event listener for Enter key press
+        chatInput.addEventListener('keyup', function(event) {
+            if (event.keyCode === 13) {
+                sendMessage();
+            }
         });
+
+        // Add event listener for emoji click
+        emojiPicker.addEventListener('click', (event) => {
+            if (event.target.tagName === 'IMG') {
+                const emoji = event.target.getAttribute('data-emoji');
+                chatInput.value += emoji;
+            }
+        });
+    }
+        initializeChat();
     </script>
 </body>
 </html>
+
+
+
