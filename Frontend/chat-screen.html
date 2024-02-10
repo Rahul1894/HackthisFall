@@ -196,58 +196,62 @@
             window.history.back();
         }
 
+        function addMessage(message, sender, time) {
+    const chatMessages = document.getElementById('chat-messages');
+    const currentDate = new Date();
+    const messageDate = currentDate.toDateString();
+    const lastMessageDate = chatMessages.dataset.lastMessageDate;
+
+    if (lastMessageDate !== messageDate) {
+        const dateSeparator = document.createElement('div');
+        dateSeparator.classList.add('date-separator');
+        dateSeparator.innerHTML = messageDate;
+        dateSeparator.innerHTML += '<hr>';
+        chatMessages.appendChild(dateSeparator);
+        chatMessages.dataset.lastMessageDate = messageDate;
+    }
+
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message');
+    messageDiv.classList.add(sender === 'own' ? 'own-message' : 'other-message');
+
+    // Profile picture
+    const profilePicImg = document.createElement('img');
+    profilePicImg.src = 'logo.jpg';
+    profilePicImg.alt = 'Profile Pic';
+    profilePicImg.width = 50;
+    profilePicImg.height = 50;
+    messageDiv.appendChild(profilePicImg);
+
+    // Message content
+    const messageContent = document.createElement('div');
+    messageContent.classList.add('message-content');
+    const messageText = document.createElement('p');
+    messageText.classList.add('message-text');
+    messageText.textContent = message;
+    messageContent.appendChild(messageText);
+
+    // Message info (time)
+    const messageInfo = document.createElement('div');
+    messageInfo.classList.add('message-info');
+    const timeText = document.createElement('span');
+    timeText.textContent = time;
+    messageInfo.appendChild(timeText);
+
+    messageContent.appendChild(messageInfo);
+    messageDiv.appendChild(messageContent);
+    chatMessages.appendChild(messageDiv);
+
+    // Scroll to the bottom of the chat
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+
+        // Function to initialize chat
         function initializeChat() {
-            const chatMessages = document.getElementById('chat-messages');
             const chatInput = document.getElementById('chat-input');
             const sendMessageBtn = document.getElementById('send-message-btn');
             const emojiPicker = document.getElementById('emoji-picker');
-            let lastMessageDate = null;
-
-            function addMessage(message, sender, time) {
-                const messageDate = new Date().toDateString();
-                if (lastMessageDate !== messageDate) {
-                    const dateSeparator = document.createElement('div');
-                    dateSeparator.classList.add('date-separator');
-                    dateSeparator.innerHTML = messageDate;
-                    dateSeparator.innerHTML += '<hr>';
-                    chatMessages.appendChild(dateSeparator);
-                    lastMessageDate = messageDate;
-                }
-
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('message');
-                messageDiv.classList.add(sender === 'own' ? 'own-message' : 'other-message');
-
-                // Profile picture
-                const profilePicImg = document.createElement('img');
-                profilePicImg.src = 'logo.jpg';
-                profilePicImg.alt = 'Profile Pic';
-                profilePicImg.width = 50;
-                profilePicImg.height = 50;
-                messageDiv.appendChild(profilePicImg);
-
-                // Message content
-                const messageContent = document.createElement('div');
-                messageContent.classList.add('message-content');
-                const messageText = document.createElement('p');
-                messageText.classList.add('message-text');
-                messageText.textContent = message;
-                messageContent.appendChild(messageText);
-
-                // Message info (time)
-                const messageInfo = document.createElement('div');
-                messageInfo.classList.add('message-info');
-                const timeText = document.createElement('span');
-                timeText.textContent = time;
-                messageInfo.appendChild(timeText);
-
-                messageContent.appendChild(messageInfo);
-                messageDiv.appendChild(messageContent);
-                chatMessages.appendChild(messageDiv);
-
-                // Scroll to the bottom of the chat
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }
 
             // Event listener for sending a message
             function sendMessage() {
