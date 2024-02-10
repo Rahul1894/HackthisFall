@@ -1,4 +1,4 @@
-# Project Name
+# iForum
 
 This project is a web application that utilizes HTML, CSS, JavaScript, Machine Learning (ML), Python (Flask), and other technologies to achieve [insert project goal here, e.g., sentiment analysis, image recognition, etc.].
 
