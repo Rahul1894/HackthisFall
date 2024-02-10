@@ -52,7 +52,7 @@
             margin: 0;
         }
 
-        .back-btn {
+        .back-btn, .chatbot-btn {
             padding: 10px;
             background-color: #075e54;
             color: #fff;
@@ -63,7 +63,7 @@
             font-size: 16px;
         }
 
-        .back-btn:hover {
+        .back-btn:hover, .chatbot-btn:hover {
             background-color: #064e44;
         }
 
@@ -177,6 +177,8 @@
             <div class="chat-header">
                 <!-- Back arrow button added -->
                 <button class="back-btn" onclick="goBack()">Back</button>
+                <!-- Chatbot button added -->
+                <button class="chatbot-btn" onclick="talkToChatbot()">Chatbot</button>
                 <h2>Chat Screen</h2>
             </div>
             <div class="chat-messages" id="chat-messages">
@@ -212,72 +214,78 @@
                     lastMessageDate = messageDate;
                 }
 
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message');
-            messageDiv.classList.add(sender === 'own' ? 'own-message' : 'other-message');
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.classList.add(sender === 'own' ? 'own-message' : 'other-message');
 
-            // Profile picture
-            const profilePicImg = document.createElement('img');
-            profilePicImg.src = 'Asset/logo.jpg';
-            profilePicImg.alt = 'Profile Pic';
-            profilePicImg.width = 50;
-            profilePicImg.height = 50;
-            messageDiv.appendChild(profilePicImg);
+                // Profile picture
+                const profilePicImg = document.createElement('img');
+                profilePicImg.src = 'logo.jpg';
+                profilePicImg.alt = 'Profile Pic';
+                profilePicImg.width = 50;
+                profilePicImg.height = 50;
+                messageDiv.appendChild(profilePicImg);
 
-            // Message content
-            const messageContent = document.createElement('div');
-            messageContent.classList.add('message-content');
-            const messageText = document.createElement('p');
-            messageText.classList.add('message-text');
-            messageText.textContent = message;
-            messageContent.appendChild(messageText);
+                // Message content
+                const messageContent = document.createElement('div');
+                messageContent.classList.add('message-content');
+                const messageText = document.createElement('p');
+                messageText.classList.add('message-text');
+                messageText.textContent = message;
+                messageContent.appendChild(messageText);
 
-            // Message info (time)
-            const messageInfo = document.createElement('div');
-            messageInfo.classList.add('message-info');
-            const timeText = document.createElement('span');
-            timeText.textContent = time;
-            messageInfo.appendChild(timeText);
+                // Message info (time)
+                const messageInfo = document.createElement('div');
+                messageInfo.classList.add('message-info');
+                const timeText = document.createElement('span');
+                timeText.textContent = time;
+                messageInfo.appendChild(timeText);
 
-            messageContent.appendChild(messageInfo);
-            messageDiv.appendChild(messageContent);
-            chatMessages.appendChild(messageDiv);
+                messageContent.appendChild(messageInfo);
+                messageDiv.appendChild(messageContent);
+                chatMessages.appendChild(messageDiv);
 
-            // Scroll to the bottom of the chat
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+                // Scroll to the bottom of the chat
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // Event listener for sending a message
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (message !== '') {
+                    // For demonstration purposes, we're using placeholder data
+                    addMessage(message, 'own', new Date().toLocaleTimeString());
+                    chatInput.value = ''; // Clear input field
+                }
+            }
+
+            sendMessageBtn.addEventListener('click', sendMessage);
+
+            // Add event listener for Enter key press
+            chatInput.addEventListener('keyup', function(event) {
+                if (event.keyCode === 13) {
+                    sendMessage();
+                }
+            });
+
+            // Add event listener for emoji click
+            emojiPicker.addEventListener('click', (event) => {
+                if (event.target.tagName === 'IMG') {
+                    const emoji = event.target.getAttribute('data-emoji');
+                    chatInput.value += emoji;
+                }
+            });
         }
 
-        // Event listener for sending a message
-        function sendMessage() {
-            const message = chatInput.value.trim();
-            if (message !== '') {
-                // For demonstration purposes, we're using placeholder data
-                addMessage(message, 'own', 'Asset/JP.jpg', new Date().toLocaleTimeString());
-                chatInput.value = ''; // Clear input field
-            }
+        // Function to handle chatbot button click
+        function talkToChatbot() {
+            // Here you can define what happens when the chatbot button is clicked
+            // For example, you could trigger a conversation with the chatbot
+            // or navigate to a different page where the chatbot interface is located
+            console.log('Chatbot button clicked');
         }
 
-        sendMessageBtn.addEventListener('click', sendMessage);
-
-        // Add event listener for Enter key press
-        chatInput.addEventListener('keyup', function(event) {
-            if (event.keyCode === 13) {
-                sendMessage();
-            }
-        });
-
-        // Add event listener for emoji click
-        emojiPicker.addEventListener('click', (event) => {
-            if (event.target.tagName === 'IMG') {
-                const emoji = event.target.getAttribute('data-emoji');
-                chatInput.value += emoji;
-            }
-        });
-    }
         initializeChat();
     </script>
 </body>
 </html>
-
-
-
