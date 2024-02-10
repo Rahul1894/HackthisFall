@@ -218,7 +218,7 @@
 
             // Profile picture
             const profilePicImg = document.createElement('img');
-            profilePicImg.src = 'logo.jpg';
+            profilePicImg.src = 'Asset/logo.jpg';
             profilePicImg.alt = 'Profile Pic';
             profilePicImg.width = 50;
             profilePicImg.height = 50;
@@ -252,7 +252,7 @@
             const message = chatInput.value.trim();
             if (message !== '') {
                 // For demonstration purposes, we're using placeholder data
-                addMessage(message, 'own', 'JP.jpg', new Date().toLocaleTimeString());
+                addMessage(message, 'own', 'Asset/JP.jpg', new Date().toLocaleTimeString());
                 chatInput.value = ''; // Clear input field
             }
         }
